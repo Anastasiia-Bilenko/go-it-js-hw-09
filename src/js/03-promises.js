@@ -32,7 +32,6 @@ let amount = Number(amountEl.value);
 let position;
  for(position = 0; position <= amount; position++){
   let delays = delay + position * step;
-  console.log(delays)
   createPromise(position, delays)
   .then(({ position, delays }) => {
     setTimeout(() => {
