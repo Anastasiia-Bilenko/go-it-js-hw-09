@@ -30,16 +30,17 @@ let step = Number(stepEl.value);
 let delay = Number(delayEl.value);
 let amount = Number(amountEl.value);
 let position;
- for(position = 1; position <= amount; position++){
-  const delays = delay + position * step ;
+ for(position = 0; position <= amount; position++){
+  let delays = delay + position * step;
+  console.log(delays)
   createPromise(position, delays)
   .then(({ position, delays }) => {
     setTimeout(() => {
-    console.log(`✅ Fulfilled promise ${position} in ${deleys}ms`); }, delays);
+    console.log(`✅ Fulfilled promise ${position += 1} in ${delay + (position - 1)* step}ms`); }, delays);
   })
   .catch(({ position, delays }) => {
     setTimeout(() => {
-    console.log(`❌ Rejected promise ${position} in ${delays}ms`); }, delays);
+    console.log(`❌ Rejected promise ${position += 1} in ${delay + (position -1) * step }ms`); }, delays);
   });
 } 
 }
