@@ -35,11 +35,11 @@ let position;
   createPromise(position, delays)
   .then(({ position, delays }) => {
     setTimeout(() => {
-    console.log(`✅ Fulfilled promise ${position} in ${delay}ms`); }, delays);
+    console.log(`✅ Fulfilled promise ${position} in ${deleys}ms`); }, delays);
   })
   .catch(({ position, delays }) => {
     setTimeout(() => {
-    console.log(`❌ Rejected promise ${position} in ${delay}ms`); }, delays);
+    console.log(`❌ Rejected promise ${position} in ${delays}ms`); }, delays);
   });
 } 
 }
