@@ -61,17 +61,22 @@ function convertMs(ms) {
 
   flatpickr(inputEl, options);
 buttonStart.addEventListener('click', timeStartFunc);
-function timeStartFunc(evt){
-    if(differenceTime.seconds >= 0){c
-    const id = setInterval(()=>{  
-    const current = new Date
-    let differenceTime = convertMs(userDate - current)    
+const intervalEl = setInterval(timeStartFunc , 1000);
+function timeStartFunc(evt){  
+   const current = new Date
+   let differenceTime = convertMs(userDate - current) 
+
+   console.log(differenceTime)
+    if(differenceTime.seconds >= 0){  
     timerDays.textContent = differenceTime.days.toString().padStart(2, "0")
     timerHours.textContent = differenceTime.hours.toString().padStart(2, "0")
     timerMinutes.textContent = differenceTime.minutes.toString().padStart(2, "0")
     timerSeconds.textContent = differenceTime.seconds.toString().padStart(2, "0");
-1000 }) } 
-else{clearInterval(id)
-alert("It's that time")
-}
-}
+    }
+    if(differenceTime.days === 0 && differenceTime.hours === 0 && differenceTime.minutes === 0 &&
+      differenceTime.seconds === 0){
+        timerSeconds.textContent = "00"
+        alert("It's that time")
+       clearInterval(intervalEl)  
+    }
+  }
